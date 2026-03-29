@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Network</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>🌐 Social Network System</h1>
+
+<p>{{ message }}</p>
+
+<form method="POST">
+    <input type="text" name="user" placeholder="User" required>
+    <input type="text" name="friend" placeholder="Friend" required>
+
+    <button name="action" value="add">➕ Add</button>
+    <button name="action" value="remove">❌ Remove</button>
+</form>
+
+<h2>📊 Network Graph</h2>
+
+<div class="graph">
+    {% for user, friends in graph.items() %}
+        <div class="card">
+            <h3>{{ user }}</h3>
+            <p>{{ friends }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
